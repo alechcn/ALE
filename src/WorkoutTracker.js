@@ -4,6 +4,8 @@ import Button from './components/ui/Button';
 import Card from './components/ui/Card';
 import Table from './components/ui/Table';
 
+const gobletSquatImage = 'https://workoutlabs.com/wp-content/uploads/watermarked/Goblet-Squat_m.png';
+
 export default function WorkoutTracker() {
   const [search, setSearch] = useState('');
   const [exercises, setExercises] = useState([
@@ -11,7 +13,7 @@ export default function WorkoutTracker() {
     { week: 'Week 1', day: 'Day 1 - Upper Body + Core', name: 'Bent-Over Row (DB/KB)', reps: '8', sets: '4', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-bent-over-row/' },
     { week: 'Week 1', day: 'Day 1 - Upper Body + Core', name: 'Overhead Press (DB)', reps: '8', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-shoulder-press/' },
     { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: '20 min warm-up run', reps: '-', sets: '-', weight: '', link: '' },
-    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Goblet Squat', reps: '10', sets: '4', weight: '', link: 'https://workoutlabs.com/exercise-guide/goblet-squat/' },
+    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Goblet Squat', reps: '10', sets: '4', weight: '', link: 'https://workoutlabs.com/exercise-guide/goblet-squat/', image: gobletSquatImage },
     { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Romanian Deadlift (DB)', reps: '8–10', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/romanian-deadlift-dumbbells/' },
     { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Standing Lunges', reps: '10/leg', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-lunge/' },
     { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Leg Extension', reps: '12–15', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/leg-extension/' },
@@ -62,28 +64,37 @@ export default function WorkoutTracker() {
         </thead>
         <tbody>
           {filtered.map((ex, i) => (
-            <tr key={i}>
-              <td>{ex.week}</td>
-              <td>{ex.day}</td>
-              <td>{ex.name}</td>
-              <td>{ex.reps}</td>
-              <td>{ex.sets}</td>
-              <td>
-                <Input
-                  value={ex.weight}
-                  onChange={e => handleChange(i, 'weight', e.target.value)}
-                />
-              </td>
-              <td>
-                {ex.link ? (
-                  <a href={ex.link} target="_blank" rel="noopener noreferrer">
-                    View
-                  </a>
-                ) : (
-                  '-'
-                )}
-              </td>
-            </tr>
+            <React.Fragment key={i}>
+              <tr>
+                <td>{ex.week}</td>
+                <td>{ex.day}</td>
+                <td>{ex.name}</td>
+                <td>{ex.reps}</td>
+                <td>{ex.sets}</td>
+                <td>
+                  <Input
+                    value={ex.weight}
+                    onChange={e => handleChange(i, 'weight', e.target.value)}
+                  />
+                </td>
+                <td>
+                  {ex.link ? (
+                    <a href={ex.link} target="_blank" rel="noopener noreferrer">
+                      View
+                    </a>
+                  ) : (
+                    '-'
+                  )}
+                </td>
+              </tr>
+              {ex.name === 'Goblet Squat' && ex.image && (
+                <tr>
+                  <td colSpan="7" style={{ textAlign: 'center' }}>
+                    <img src={ex.image} alt="Goblet Squat" style={{ maxWidth: '300px', marginTop: '10px' }} />
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
           ))}
         </tbody>
       </Table>
