@@ -9,7 +9,21 @@ const gobletSquatImage = '/mnt/data/image.png';
 export default function WorkoutTracker() {
   const [search, setSearch] = useState('');
   const [exercises, setExercises] = useState([
-    // ... same exercise data as before
+    { week: 'Week 1', day: 'Day 1 - Upper Body + Core', name: 'Dumbbell Bench Press', reps: '6–8', sets: '4', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-bench-press/' },
+    { week: 'Week 1', day: 'Day 1 - Upper Body + Core', name: 'Bent-Over Row (DB/KB)', reps: '8', sets: '4', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-bent-over-row/' },
+    { week: 'Week 1', day: 'Day 1 - Upper Body + Core', name: 'Overhead Press (DB)', reps: '8', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-shoulder-press/' },
+    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: '20 min warm-up run', reps: '-', sets: '-', weight: '', link: '' },
+    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Goblet Squat', reps: '10', sets: '4', weight: '', link: 'https://workoutlabs.com/exercise-guide/goblet-squat/', image: gobletSquatImage },
+    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Romanian Deadlift (DB)', reps: '8–10', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/romanian-deadlift-dumbbells/' },
+    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Standing Lunges', reps: '10/leg', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-lunge/' },
+    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Leg Extension', reps: '12–15', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/leg-extension/' },
+    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Inner Thigh Machine', reps: '12–15', sets: '3', weight: '', link: '' },
+    { week: 'Week 1', day: 'Day 2 - Lower Body (No Barbell)', name: 'Outer Thigh Machine', reps: '12–15', sets: '3', weight: '', link: '' },
+    { week: 'Week 1', day: 'Day 3 - Running + Core', name: 'Run (5–7km) or 6×400m sprints', reps: '-', sets: '-', weight: '', link: '' },
+    { week: 'Week 1', day: 'Day 3 - Running + Core', name: 'Plank (front + side)', reps: '45s', sets: '2–3', weight: '', link: 'https://workoutlabs.com/exercise-guide/plank/' },
+    { week: 'Week 1', day: 'Day 4 - Full Body Strength', name: 'Dumbbell Deadlift', reps: '5', sets: '4', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-deadlift/' },
+    { week: 'Week 1', day: 'Day 4 - Full Body Strength', name: 'Push Press (DB)', reps: '6', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/dumbbell-push-press/' },
+    { week: 'Week 1', day: 'Day 4 - Full Body Strength', name: 'Kettlebell Swings', reps: '15', sets: '3', weight: '', link: 'https://workoutlabs.com/exercise-guide/kettlebell-swing/' }
   ]);
 
   const handleChange = (index, field, value) => {
