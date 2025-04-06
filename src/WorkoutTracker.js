@@ -4,7 +4,7 @@ import Button from './components/ui/Button';
 import Card from './components/ui/Card';
 import Table from './components/ui/Table';
 
-const gobletSquatImage = 'https://workoutlabs.com/wp-content/uploads/watermarked/Goblet-Squat_m.png';
+const gobletSquatImage = '/mnt/data/image.png';
 
 export default function WorkoutTracker() {
   const [search, setSearch] = useState('');
