@@ -1,0 +1,1 @@
+export default function Card({ children, ...props }) { return <div style={{ border: '1px solid #ccc', borderRadius: '4px', padding: '1em' }} {...props}>{children}</div>; }
